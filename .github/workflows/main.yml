@@ -9,8 +9,6 @@ on:
 permissions:
       id-token: write
       contents: read
-env:
-  AZURE_REGION: 'eastus'
 
 jobs:
   DeployDevInfrastructure_Stage_DeployInfrastructure:
@@ -30,9 +28,9 @@ jobs:
       name: Create Resource Group
       with:
         inlineScript: |
-          az group create --name rg-juiceshop-dev-lod --location ${{ env.AZURE_REGION }} --tags LabInstance=${{ secrets.LAB_INSTANCE }}
+          az group create --name rg-juiceshop-dev-lod --location ${{ secrets.LOCATION }} --tags LabInstance=${{ secrets.LAB_INSTANCE }}
 
-          az group create --name rg-juiceshop-prod-lod --location ${{ env.AZURE_REGION }} --tags LabInstance=${{ secrets.LAB_INSTANCE }}
+          az group create --name rg-juiceshop-prod-lod --location ${{ secrets.LOCATION }} --tags LabInstance=${{ secrets.LAB_INSTANCE }}
         azcliversion: latest
 
     - uses: azure/cli@v1.0.0
