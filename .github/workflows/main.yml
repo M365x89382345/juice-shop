@@ -30,9 +30,9 @@ jobs:
       name: Create Resource Group
       with:
         inlineScript: |
-          az group create --name rg-juiceshop-dev-lod --location ${{ env.AZURE_REGION }}
+          az group create --name rg-juiceshop-dev-lod --location ${{ env.AZURE_REGION }} --tags LabInstance=${{ secrets.LAB_INSTANCE }}
 
-          az group create --name rg-juiceshop-prod-lod --location ${{ env.AZURE_REGION }}
+          az group create --name rg-juiceshop-prod-lod --location ${{ env.AZURE_REGION }} --tags LabInstance=${{ secrets.LAB_INSTANCE }}
         azcliversion: latest
 
     - uses: azure/cli@v1.0.0
