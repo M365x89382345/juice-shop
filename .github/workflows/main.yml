@@ -30,8 +30,9 @@ jobs:
       name: Create Resource Group
       with:
         inlineScript: |
-            az group create --name rg-juiceshop-dev-lod --location $AZURE_REGION
-            az group create --name rg-juiceshop-prod-lod --location $AZURE_REGION
+          az group create --name rg-juiceshop-dev-lod --location $AZURE_REGION
+
+          az group create --name rg-juiceshop-prod-lod --location $AZURE_REGION
         azcliversion: latest
 
     - uses: azure/cli@v1.0.0
